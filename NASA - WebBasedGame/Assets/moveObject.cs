@@ -16,23 +16,31 @@ public class moveObject : MonoBehaviour
         //rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void Awake()
+    Camera aCamera;
+
+    void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        aCamera = Camera.main;
+       rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         //GameObject theObject = GetComponent<GameObject>();
 
         //MoveDirection direction = MoveDirection.Left;
 
-        rigid.MovePosition(Input.mousePosition);
+        //rigid.MovePosition(Input.mousePosition);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Mouse mouse = Mouse.current;
+        if (mouse.leftButton.wasPressedThisFrame)
+        {
+            Vector2 mousePosition = mouse.position.ReadValue();
+            rigid.transform.position = mousePosition;
+        }
     }
 }
