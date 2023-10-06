@@ -23,6 +23,7 @@ public class moveTriangle : MonoBehaviour
         {
             Vector2 mousePosition = mouse.position.ReadValue();
             go.transform.position = mousePosition;
+            
         }
     }
 }
