@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    enum Type    
+    {
+        DocA,
+        DocB,
+        DocC,
+        DocD
+    }
     public class Item
     {
         string name;
+        Type aType;
     }
     public class Slot
     {
