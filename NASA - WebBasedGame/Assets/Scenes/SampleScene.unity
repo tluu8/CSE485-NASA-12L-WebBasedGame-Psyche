@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1369252280}
   - component: {fileID: 1369252279}
+  - component: {fileID: 1369252281}
   m_Layer: 0
   m_Name: testSquare
   m_TagString: Untagged
@@ -406,6 +407,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369252281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369252278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbf89b89a298c64f8d29550a5083ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1546071116
 GameObject:
   m_ObjectHideFlags: 0
