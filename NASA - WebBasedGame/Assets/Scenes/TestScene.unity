@@ -246,6 +246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+<<<<<<< Updated upstream
+=======
+  target: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!212 &1843934178
 SpriteRenderer:
   m_ObjectHideFlags: 0
