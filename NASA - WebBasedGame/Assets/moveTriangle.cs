@@ -6,12 +6,11 @@ using UnityEngine.InputSystem;
 
 public class moveTriangle : MonoBehaviour
 {
-    GameObject go;
+    
     Camera aCam;
     // Start is called before the first frame update
     void Start()
     {
-        go = GetComponent<GameObject>();
         aCam = Camera.main;
     }
 
@@ -22,7 +21,8 @@ public class moveTriangle : MonoBehaviour
         if (mouse.leftButton.wasPressedThisFrame)
         {
             Vector2 mousePosition = mouse.position.ReadValue();
-            go.transform.position = mousePosition;
+            transform.position = mousePosition;
+            
         }
     }
 }
