@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -31,6 +33,11 @@ public class Inventory : MonoBehaviour
             this.itemName = "";
             this.itemType = Type.None;
         }
+
+        public Type getItemType()
+        {
+            return this.itemType;
+        }
     }
     public class Slot
     {
@@ -48,6 +55,11 @@ public class Inventory : MonoBehaviour
             this.item = emptyItem;
             this.slotNum = currentSlotNumber;
         }
+
+        public Item getItemInSlot()
+        {
+            return this.item;
+        }
     }
 
     public Inventory()
@@ -59,6 +71,28 @@ public class Inventory : MonoBehaviour
             Slot slotToInsert = new Slot(i + 1);
             combinedSlots[i] = slotToInsert;
         }
+    }
+
+    public bool addItemToNextSlot(Item anItem) 
+    {
+        bool didAdd = false;
+
+        for (int a = 0; a < TOTALSLOTS; a++)
+        {
+            if (combinedSlots[a].getItemInSlot().getItemType() == Type.None)
+            {
+                Slot slotToAdd = new Slot(anItem, a + 1);
+                combinedSlots[a] = slotToAdd;
+                break;
+            }
+        }
+
+        return didAdd;
+    }
+
+    public void removeSlotItem(int userSlotNumber)
+    {
+        combinedSlots[userSlotNumber - 1] = new Slot(userSlotNumber);
     }
 
     // Start is called before the first frame update
