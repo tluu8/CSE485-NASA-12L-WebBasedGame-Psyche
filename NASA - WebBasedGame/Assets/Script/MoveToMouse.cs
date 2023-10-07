@@ -6,21 +6,41 @@ public class MoveToMouse : MonoBehaviour
 {
     public float speed = 5f;
     private Vector3 target;
-    // Start is called before the first frame update
+    private bool isMoving = false;
+
     void Start()
     {
         target = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = transform.position.z;
-
+            isMoving = true;
         }
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, target) < 0.01f)
+            {
+                transform.position = target; // Snap directly to target
+                isMoving = false;
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collided with: " + collision.gameObject.name); // This will log the name of the collided object
+
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            target = transform.position; // Set the current position as the target
+            isMoving = false;
+        }
     }
 }
