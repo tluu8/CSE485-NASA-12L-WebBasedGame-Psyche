@@ -7,6 +7,7 @@ public class MoveToMouse : MonoBehaviour
     public float speed = 5f;
     private Vector3 target;
     private bool isMoving = false;
+    private float fixedY = -3.495f;  // The fixed Y-coordinate when touching the floor
 
     void Start()
     {
@@ -18,7 +19,8 @@ public class MoveToMouse : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.z = transform.position.z;
+            target.y = fixedY;  // Set the Y-coordinate to the fixed value
+            target.z = transform.position.z;  // Keep the original Z-coordinate
             isMoving = true;
         }
         if (isMoving)
