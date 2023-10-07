@@ -12,6 +12,7 @@ public class MoveToMouse : MonoBehaviour
     void Start()
     {
         target = transform.position;
+        transform.position = new Vector3(transform.position.x, fixedY, transform.position.z);
     }
 
     void Update()
