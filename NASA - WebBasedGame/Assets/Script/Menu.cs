@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
     // Start game function
     public void StartGameButton() {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
     }
 
     // Credit button function
@@ -18,7 +18,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
-    // Bakc button function
+    // Back button function
     public void BackButton()
     {
 
