@@ -21,17 +21,20 @@ public class Inventory : MonoBehaviour
     {
         string itemName;
         Type itemType;
+        string description;
 
-        public Item(string aName, Type aType)
+        public Item(string aName, Type aType, string desc)
         {
             this.itemName = aName;
             this.itemType = aType;
+            this.description = desc;
         }
         
         public Item()
         {
             this.itemName = "";
             this.itemType = Type.None;
+            this.description = "";
         }
 
         public Type getItemType()
