@@ -23,14 +23,13 @@ public class Inventory : MonoBehaviour
         string itemName;
         Type itemType;
         string description;
-        Texture2D displayIcon;
+        Texture2D displayIcon = new Texture2D(16, 16);
 
         public Item(string aName, Type aType, string desc, string imagePath)
         {
             this.itemName = aName;
             this.itemType = aType;
             this.description = desc;
-            this.displayIcon = new Texture2D(16, 16);
             byte[] picArray = File.ReadAllBytes(imagePath);
             ImageConversion.LoadImage(this.displayIcon, picArray);
         }
@@ -40,7 +39,7 @@ public class Inventory : MonoBehaviour
             this.itemName = "";
             this.itemType = Type.None;
             this.description = "";
-            this.displayIcon = new Texture2D(16, 16);
+            this.displayIcon = Texture2D.blackTexture;
         }
 
         public Type getItemType()
