@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
+    public TextMeshProUGUI itemText;
     private InventorySystem inventory;
     private bool isInventoryVisible = false;
 
@@ -28,12 +30,13 @@ public class InventoryUI : MonoBehaviour
     {
         if (inventory != null && isInventoryVisible)
         {
-            // Here you would update the UI elements to represent the items in the inventory.
-            // For now, just logging the items to the console.
-            Debug.Log("Inventory Items:");
+            // Clear the existing text
+            itemText.text = "";
+
+            // Loop through each item in the inventory and add its name to the text
             foreach (var item in inventory.items)
             {
-                Debug.Log(item.name);
+                itemText.text += item.name + "\n";
             }
         }
     }
