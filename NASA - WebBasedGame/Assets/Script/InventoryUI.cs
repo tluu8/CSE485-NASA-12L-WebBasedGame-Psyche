@@ -32,6 +32,7 @@ public class InventoryUI : MonoBehaviour
         {
             // Clear the existing text
             itemText.text = "";
+            itemText.fontSize = 40;
 
             // Loop through each item in the inventory and add its name to the text
             foreach (var item in inventory.items)
