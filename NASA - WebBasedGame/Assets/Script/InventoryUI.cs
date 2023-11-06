@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+
 
 public class InventoryUI : MonoBehaviour
 {
@@ -37,11 +39,14 @@ public class InventoryUI : MonoBehaviour
         }
 
         // Create a new UI element for each item
-        foreach (var item in inventory.items)
+        //foreach (var item in inventory.items)
+        for (int i = 0; i<inventory.items.Count; i++)
         {
+            var item = inventory.items[i];
+            var itemDesc = inventory.descriptions[i];
             GameObject newItem = Instantiate(itemPrefab, inventoryPanel);
-            TextMeshProUGUI itemText = newItem.GetComponent<TextMeshProUGUI>();
-            itemText.text = item.name;
+            TextMeshProUGUI itemText = newItem.GetComponent<TextMeshProUGUI>();           
+            itemText.text = item.name + " - " + itemDesc;
         }
     }
 

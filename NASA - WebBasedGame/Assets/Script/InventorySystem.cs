@@ -16,7 +16,7 @@ public class InventorySystem : MonoBehaviour
     {
         items.Add(item);
         descriptions.Add("Test Description #" + itemNum);
-        Texture2D iconToAdd = new Texture2D(16, 16);
+        Texture2D iconToAdd = new Texture2D(64, 64);
         iconToAdd = Texture2D.blackTexture;
         displayIcons.Add(iconToAdd);
         itemNum++;
