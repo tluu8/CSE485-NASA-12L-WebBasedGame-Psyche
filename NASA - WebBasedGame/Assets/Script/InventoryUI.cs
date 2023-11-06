@@ -5,7 +5,9 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
-    public TextMeshProUGUI itemText;
+
+    public GameObject itemPrefab;
+    public Transform inventoryPanel;
     private InventorySystem inventory;
     private bool isInventoryVisible = false;
 
@@ -28,18 +30,19 @@ public class InventoryUI : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
-        if (inventory != null && isInventoryVisible)
+        // Clear existing items
+        foreach (Transform child in inventoryPanel)
         {
-            // Clear the existing text
-            itemText.text = "";
-            itemText.fontSize = 40;
-            itemText.color = Color.blue;
+            Destroy(child.gameObject);
+        }
 
-            // Loop through each item in the inventory and add its name to the text
-            foreach (var item in inventory.items)
-            {
-                itemText.text += item.name + "\n";
-            }
+        // Create a new UI element for each item
+        foreach (var item in inventory.items)
+        {
+            GameObject newItem = Instantiate(itemPrefab, inventoryPanel);
+            TextMeshProUGUI itemText = newItem.GetComponent<TextMeshProUGUI>();
+            itemText.text = item.name;
         }
     }
+
 }
