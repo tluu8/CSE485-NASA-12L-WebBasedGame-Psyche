@@ -89,4 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anImage: {fileID: -4342671500903408598}
+  textItemPrefab: {fileID: 7487655606211611861, guid: 2ddcd612e9b32e3409611de779d5ddbf, type: 3}
+  descItemPrefab: {fileID: 7308837152089430947, guid: e68cef07a342f6b4c85e4d4d22076ab6, type: 3}
+  overallCanvas: {fileID: 0}
   lastParent: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  newTitle: {fileID: 0}
+  newDescription: {fileID: 0}

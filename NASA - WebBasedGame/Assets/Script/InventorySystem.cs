@@ -8,17 +8,14 @@ using Unity.VisualScripting;
 public class InventorySystem : MonoBehaviour
 {
     public List<GameObject> items = new List<GameObject>();
-    public List<string> descriptions = new List<string>();
-    public List<Texture2D> displayIcons = new List<Texture2D>();
+   // public List<string> descriptions = new List<string>();
+    public Dictionary<string, string> descriptions = new Dictionary<string, string>();
     private int itemNum = 1;
 
     public void AddItem(GameObject item)
     {
         items.Add(item);
-        descriptions.Add("Test Description #" + itemNum);
-        Texture2D iconToAdd = new Texture2D(64, 64);
-        iconToAdd = Texture2D.blackTexture;
-        displayIcons.Add(iconToAdd);
+        descriptions.Add(item.name, "Test Description #" + itemNum);
         itemNum++;
     }
 }

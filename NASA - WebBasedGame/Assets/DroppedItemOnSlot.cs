@@ -9,9 +9,9 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
     {
         if (transform.childCount == 0)
         { 
-        GameObject aDroppedItem = eventData.pointerDrag;
-        DragScript draggedItem = aDroppedItem.GetComponent<DragScript>();
-        draggedItem.lastParent = transform;
+            GameObject aDroppedItem = eventData.pointerDrag;
+            DragScript draggedItem = aDroppedItem.GetComponent<DragScript>();
+            draggedItem.lastParent = transform;
         }
     }
 }
