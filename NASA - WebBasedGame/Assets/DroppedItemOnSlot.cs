@@ -7,11 +7,8 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        if (transform.childCount == 0)
-        { 
-            GameObject aDroppedItem = eventData.pointerDrag;
-            DragScript draggedItem = aDroppedItem.GetComponent<DragScript>();
-            draggedItem.lastParent = transform;
-        }
+        GameObject aDraggedItem = eventData.pointerDrag;
+        DragScript aDroppedItem = aDraggedItem.GetComponent<DragScript>();
+        aDroppedItem.lastParent = transform;
     }
 }

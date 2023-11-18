@@ -8,7 +8,6 @@ using Unity.VisualScripting;
 public class InventorySystem : MonoBehaviour
 {
     public List<GameObject> items = new List<GameObject>();
-   // public List<string> descriptions = new List<string>();
     public Dictionary<string, string> descriptions = new Dictionary<string, string>();
     private int itemNum = 1;
 
