@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
-
+using System;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
+        
         inventory = FindObjectOfType<InventorySystem>();
         if (inventory == null)
         {
@@ -152,12 +153,19 @@ public class InventoryUI : MonoBehaviour
         }
 
         // Create a new UI element for each item
-        for (int i = 0; i<inventory.items.Count; i++)
+        try
         {
-            var item = inventory.items[i];
-            GameObject newItem = Instantiate(itemPrefab, getOpenSlot(i));
-            newItem.name = item.name;
-            Image itemText = newItem.GetComponent<Image>();
+            for (int i = 0; i < inventory.items.Count; i++)
+            {
+                var item = inventory.items[i];
+                GameObject newItem = Instantiate(itemPrefab, getOpenSlot(i));
+                newItem.name = item.name;
+                Image itemText = newItem.GetComponent<Image>();
+            }
+        }
+        catch(NullReferenceException)
+        {
+            Debug.Log("Null reference again");
         }
     }
 
