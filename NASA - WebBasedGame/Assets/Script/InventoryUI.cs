@@ -24,7 +24,6 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        
         inventory = FindObjectOfType<InventorySystem>();
         if (inventory == null)
         {
@@ -91,24 +90,24 @@ public class InventoryUI : MonoBehaviour
             Destroy(child.gameObject);
         }
         foreach (Transform child in inventorySlot4)
-        { 
-            Destroy(child.gameObject); 
+        {
+            Destroy(child.gameObject);
         }
         foreach (Transform child in inventorySlot5)
-        { 
-            Destroy(child.gameObject); 
+        {
+            Destroy(child.gameObject);
         }
         foreach (Transform child in inventorySlot6)
-        { 
-            Destroy(child.gameObject); 
+        {
+            Destroy(child.gameObject);
         }
         foreach (Transform child in inventorySlot7)
-        { 
-            Destroy(child.gameObject); 
+        {
+            Destroy(child.gameObject);
         }
         foreach (Transform child in inventorySlot8)
-        { 
-            Destroy(child.gameObject); 
+        {
+            Destroy(child.gameObject);
         }
 
         Transform getOpenSlot(int slotNum)
@@ -163,7 +162,7 @@ public class InventoryUI : MonoBehaviour
                 Image itemText = newItem.GetComponent<Image>();
             }
         }
-        catch(NullReferenceException)
+        catch (NullReferenceException)
         {
             Debug.Log("Null reference again");
         }

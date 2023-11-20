@@ -54,12 +54,12 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         textPortion.text = transform.name;
         newTitle.SetActive(true);
 
-        
+
         newDescription = Instantiate(descItemPrefab, overallCanvas);
         TextMeshProUGUI textDescPortion = newDescription.GetComponent<TextMeshProUGUI>();
         textDescPortion.text = aSystem.descriptions[transform.name];
         newDescription.SetActive(true);
-        
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
