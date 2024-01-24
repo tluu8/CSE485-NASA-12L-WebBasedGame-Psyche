@@ -39,7 +39,7 @@ public class InventoryUI : MonoBehaviour
         UpdateInventoryUI();
         if (!isInventoryVisible)
         {
-            foreach (Transform child in inventorySlot1)
+            /*foreach (Transform child in inventorySlot1)
             {
                 Destroy(child.gameObject);
             }
@@ -71,13 +71,86 @@ public class InventoryUI : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
+            foreach (Transform child in inventorySlot9)
+            {
+                Destroy(child.gameObject);
+            }*/
         }
+    }
+
+    private bool isFound(String strName)
+    {
+        foreach (Transform child in inventorySlot1)
+        {
+            if (child.name == strName) 
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot2)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot3)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot4)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot5)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot6)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot7)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot8)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot9)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void UpdateInventoryUI()
     {
 
-        foreach (Transform child in inventorySlot1)
+        /*foreach (Transform child in inventorySlot1)
         {
             Destroy(child.gameObject);
         }
@@ -109,11 +182,54 @@ public class InventoryUI : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
-        Transform getOpenSlot(int slotNum)
+        foreach (Transform child in inventorySlot9)
         {
+            Destroy(child.gameObject);
+        }*/
 
-            if (slotNum == 0)
+        Transform getOpenSlot()
+        {
+            if (inventorySlot1.childCount == 0)
+            {
+                return inventorySlot1;
+            }
+            else if (inventorySlot2.childCount == 0) 
+            {
+                return inventorySlot2;
+            }
+            else if (inventorySlot3.childCount == 0)
+            {
+                return inventorySlot3;
+            }
+            else if (inventorySlot4.childCount == 0)
+            {
+                return inventorySlot4;
+            }
+            else if (inventorySlot5.childCount == 0)
+            {
+                return inventorySlot5;
+            }
+            else if (inventorySlot6.childCount == 0)
+            {
+                return inventorySlot6;
+            }
+            else if (inventorySlot7.childCount == 0)
+            {
+                return inventorySlot7;
+            }
+            else if (inventorySlot8.childCount == 0)
+            {
+                return inventorySlot8;
+            }
+            /*else if (inventorySlot9.childCount == 0)
+            {
+                return inventorySlot9;
+            }*/
+            else
+            {
+                return inventorySlot9;
+            }
+            /*if (slotNum == 0)
             {
                 return inventorySlot1;
             }
@@ -148,7 +264,7 @@ public class InventoryUI : MonoBehaviour
             else
             {
                 return inventorySlot9;
-            }
+            }*/
         }
 
         // Create a new UI element for each item
@@ -156,10 +272,17 @@ public class InventoryUI : MonoBehaviour
         {
             for (int i = 0; i < inventory.items.Count; i++)
             {
-                var item = inventory.items[i];
-                GameObject newItem = Instantiate(itemPrefab, getOpenSlot(i));
-                newItem.name = item.name;
-                Image itemText = newItem.GetComponent<Image>();
+                //Debug.Log("Check " + i + "a");
+                if (!isFound(inventory.items[i].name))
+                {
+                    var item = inventory.items[i];
+                    GameObject newItem = Instantiate(itemPrefab, getOpenSlot());
+                    //GameObject newItem = Instantiate(inventory.items[i], getOpenSlot());
+                    newItem.name = item.name;
+                    Image itemText = newItem.GetComponent<Image>();
+                }
+                //Debug.Log("Pre-check " + i + "b");
+                //newItem.name = "TestItem1";
             }
         }
         catch (NullReferenceException)

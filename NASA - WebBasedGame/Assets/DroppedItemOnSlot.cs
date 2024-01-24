@@ -18,6 +18,16 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             Debug.LogError("Inventory system not found in the scene!");
         }
     }
+
+    void Update()
+    {
+        aSystem = FindObjectOfType<InventorySystem>();
+        if (aSystem == null)
+        {
+            Debug.LogError("Inventory system not found in the scene!");
+        }
+    }
+
     public bool combinable(GameObject firstItemToCheck, GameObject secondItemToCheck)
     {
         if (aSystem.combinableItems[firstItemToCheck.name] == secondItemToCheck.name)
@@ -46,7 +56,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
         {
             DragScript theOriginalItem = transform.GetChild(0).GetComponent<DragScript>();
             aDroppedItem.lastParent = transform;
-            /*foreach (GameObject item in aSystem.items)
+            foreach (GameObject item in aSystem.items)
             {
                 if (item.name == theOriginalItem.name)
                 {
@@ -61,7 +71,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
                     aSystem.items.Remove(item);
                     break;
                 }
-            }*/
+            }
             //aSystem.items.Remove(aDraggedItem.gameObject);
             //aSystem.items.Remove(transform.GetChild(0).gameObject);
             //Destroy(aDroppedItem.gameObject);
@@ -76,7 +86,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             GameObject newItem = Instantiate(itemPrefab, transform);
             newItem.name = "TestItem4";
             newItem.transform.name = "TestItem4";
-            //aSystem.AddItem(newItem);
+            aSystem.AddItem(newItem);
 
 
         }

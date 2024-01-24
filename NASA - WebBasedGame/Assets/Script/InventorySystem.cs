@@ -18,7 +18,6 @@ public class InventorySystem : MonoBehaviour
         combinableItems.Add("TestItem3", "TestItem1");
         combinableItems.Add("TestItem2", " ");
         combinableItems.Add("TestItem4", " ");
-        descriptions.Add("TestItem4", "Test Description #4");
     }
 
     public void AddItem(GameObject item)
