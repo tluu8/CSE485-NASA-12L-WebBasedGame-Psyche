@@ -8,8 +8,15 @@ using System;
 
 public class InventoryUI : MonoBehaviour
 {
+    // Prefab for generating objects to fill visual inventory
+    // Testing purposes, mainly
     public GameObject itemPrefab;
+
+    // The main inventory panel housing the 9 slots
     public Transform inventoryPanel;
+
+    // The nine inventory slots. Avoided using an array,
+    // as it got tricky trying to make it work
     public Transform inventorySlot1;
     public Transform inventorySlot2;
     public Transform inventorySlot3;
@@ -19,7 +26,11 @@ public class InventoryUI : MonoBehaviour
     public Transform inventorySlot7;
     public Transform inventorySlot8;
     public Transform inventorySlot9;
+
+    // The backend inventory variable
     private InventorySystem inventory;
+
+    // Toggler variable to turn inventory screen on and off
     private bool isInventoryVisible = false;
 
     void Start()
@@ -32,52 +43,15 @@ public class InventoryUI : MonoBehaviour
         UpdateInventoryUI();
     }
 
+    // Method to change between screens, regular and inventory
     public void ToggleInventory()
     {
         isInventoryVisible = !isInventoryVisible;
         gameObject.SetActive(isInventoryVisible);
         UpdateInventoryUI();
-        if (!isInventoryVisible)
-        {
-            /*foreach (Transform child in inventorySlot1)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot2)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot3)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot4)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot5)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot6)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot7)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot8)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in inventorySlot9)
-            {
-                Destroy(child.gameObject);
-            }*/
-        }
     }
 
+    // Method to search for if an item is already in the frontend inventory
     private bool isFound(String strName)
     {
         foreach (Transform child in inventorySlot1)
@@ -147,46 +121,13 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
+    // Updating InventoryUI or frontend inventory every time it is summoned
     private void UpdateInventoryUI()
     {
-
-        /*foreach (Transform child in inventorySlot1)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot2)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot3)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot4)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot5)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot6)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot7)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot8)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in inventorySlot9)
-        {
-            Destroy(child.gameObject);
-        }*/
-
+        // Local function to find the next available slot
+        // Currently limited to 9 slots
+        // Need potential limiting of items or prevent pickup,
+        // as overload will occur on 9th slot
         Transform getOpenSlot()
         {
             if (inventorySlot1.childCount == 0)
@@ -229,42 +170,7 @@ public class InventoryUI : MonoBehaviour
             {
                 return inventorySlot9;
             }
-            /*if (slotNum == 0)
-            {
-                return inventorySlot1;
-            }
-            else if (slotNum == 1)
-            {
-                return inventorySlot2;
-            }
-            else if (slotNum == 2)
-            {
-                return inventorySlot3;
-            }
-            else if (slotNum == 3)
-            {
-                return inventorySlot4;
-            }
-            else if (slotNum == 4)
-            {
-                return inventorySlot5;
-            }
-            else if (slotNum == 5)
-            {
-                return inventorySlot6;
-            }
-            else if (slotNum == 6)
-            {
-                return inventorySlot7;
-            }
-            else if (slotNum == 7)
-            {
-                return inventorySlot8;
-            }
-            else
-            {
-                return inventorySlot9;
-            }*/
+            
         }
 
         // Create a new UI element for each item
@@ -281,13 +187,13 @@ public class InventoryUI : MonoBehaviour
                     newItem.name = item.name;
                     Image itemText = newItem.GetComponent<Image>();
                 }
-                //Debug.Log("Pre-check " + i + "b");
-                //newItem.name = "TestItem1";
             }
         }
+        // Currently unsure why this exception is being thrown, but didn't affect gameplay
+        // from what could be determined. Catching it so that it is separated from other errors
         catch (NullReferenceException)
         {
-            Debug.Log("Null reference again");
+            Debug.Log("Null reference thrown");
         }
     }
 
