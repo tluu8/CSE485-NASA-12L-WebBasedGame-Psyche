@@ -30,4 +30,11 @@ public class ButtonAction : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
+
+    // Click this button (game scene 1) to move back to exit the game
+    public void BackButton1()
+    {
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+    }
 }
