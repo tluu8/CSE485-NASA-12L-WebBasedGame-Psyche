@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.VirtualTexturing;
 
+// DroppedItemOnSlot handles the dropping of items onto inventory slots
 public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
 {
-    // The inventory being used
+    // Reference to the inventory system
     private InventorySystem aSystem;
 
     // The current prefab or template to generate new items. Mainly used for testing purposes,
@@ -16,6 +17,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
 
     void Start()
     {
+        // Get reference to the inventory system during the start of the script
         aSystem = FindObjectOfType<InventorySystem>();
         if (aSystem == null)
         {
@@ -25,6 +27,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
 
     void Update()
     {
+        // Update reference to the inventory system during every frame
         aSystem = FindObjectOfType<InventorySystem>();
         if (aSystem == null)
         {
@@ -32,10 +35,10 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
         }
     }
 
-    // The function to check whether the item being held and the item in the slot are combinable or not
-    // If they are, they are marked for the combination process
-    // If they aren't, then the dragged item returns to its original slot
-    public bool combinable(GameObject firstItemToCheck, GameObject secondItemToCheck)
+    // Check whether two items are combinable or not
+    // If they are, mark them for the combination process
+    // If not, return the dragged item to its original slot
+    public bool IsCombinable(GameObject firstItemToCheck, GameObject secondItemToCheck)
     {
         // Checking whether the items' names are in the dictionaries of either item, no matter the order
         if (aSystem.combinableItems[firstItemToCheck.name] == secondItemToCheck.name)
@@ -52,63 +55,48 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
         }
     }
 
-    // The event handler for when an item gets dropped
+    // Event handler for when an item gets dropped
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject aDraggedItem = eventData.pointerDrag;
-        DragScript aDroppedItem = aDraggedItem.GetComponent<DragScript>();
-        
-        // If the inventory slot is empty, it is marked to allow the drop 
+        GameObject draggedItem = eventData.pointerDrag;
+        DragScript droppedItem = draggedItem.GetComponent<DragScript>();
+
+        // If the inventory slot is empty, allow the drop 
         if (transform.childCount == 0)
         {
-            aDroppedItem.lastParent = transform;
+            droppedItem.lastParent = transform;
         }
 
         // If the inventory slot isn't empty but the item found in the slot is combinable
         // with the currently being held item in the mouse pointer, then the combination
-        // process will take effect, deleting both of the items and replacing the item
-        // being dropped with a new item
-        else if (combinable(transform.GetChild(0).gameObject, aDraggedItem.gameObject))
+        // process will take effect
+        else if (IsCombinable(transform.GetChild(0).gameObject, draggedItem.gameObject))
         {
-            // i.e. The item in the slot
-            DragScript theOriginalItem = transform.GetChild(0).GetComponent<DragScript>();
+            // The item in the slot
+            DragScript originalItem = transform.GetChild(0).GetComponent<DragScript>();
 
             // The item being held by the cursor is marked to drop in the slot
-            aDroppedItem.lastParent = transform;
+            droppedItem.lastParent = transform;
 
             // Removing each of the parents (two combinable items) from the backend inventory list
-            foreach (GameObject item in aSystem.items)
-            {
-                if (item.name == theOriginalItem.name)
-                {
-                    aSystem.items.Remove(item);
-                    break;
-                }
-            }
-            foreach (GameObject item in aSystem.items)
-            {
-                if (item.name == aDraggedItem.name)
-                {
-                    aSystem.items.Remove(item);
-                    break;
-                }
-            }
+            aSystem.items.Remove(originalItem.gameObject);
+            aSystem.items.Remove(draggedItem.gameObject);
 
-            // Removing the combined items's displayed name and description
-            theOriginalItem.newTitle.SetActive(false);
-            theOriginalItem.newDescription.SetActive(false);
-            Destroy(theOriginalItem.newTitle.gameObject);
-            Destroy(theOriginalItem.newDescription.gameObject);
-            Destroy(aDroppedItem.newTitle.gameObject);
-            Destroy(aDroppedItem.newDescription.gameObject);
+            // Removing the combined items' displayed name and description
+            originalItem.newTitle.SetActive(false);
+            originalItem.newDescription.SetActive(false);
+            Destroy(originalItem.newTitle.gameObject);
+            Destroy(originalItem.newDescription.gameObject);
+            Destroy(droppedItem.newTitle.gameObject);
+            Destroy(droppedItem.newDescription.gameObject);
 
             // Deleting both of the old inventory items
-            Destroy(aDraggedItem.gameObject);
+            Destroy(draggedItem.gameObject);
             Destroy(transform.GetChild(0).gameObject);
 
             // Creating a new combined item.
-            // NOTE: This is just for testing; needs to be altered to accomodate rest of game
-            //       i.e. Needs change in creation of object to allow different objects to be created
+            // NOTE: This is just for testing; needs to be altered to accommodate rest of the game
+            //       i.e. Needs change in the creation of the object to allow different objects to be created
             //            using dictionaries of combinable objects, correct names, etc.
             GameObject newItem = Instantiate(itemPrefab, transform);
             newItem.name = "TestItem4";
