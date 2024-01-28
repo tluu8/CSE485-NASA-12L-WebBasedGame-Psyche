@@ -33,7 +33,7 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     void Start()
     {
-        // Get reference to inventory system
+        // Get reference to inventory system during the start of the script
         aSystem = FindObjectOfType<InventorySystem>();
         if (aSystem == null)
         {
@@ -44,11 +44,10 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     // When drag starts, set up drag visuals
     public void OnBeginDrag(PointerEventData eventData)
     {
-
         // Store last parent for reparenting later
         lastParent = transform.parent;
 
-        // Make image appear above other UI
+        // Make image appear above other UI elements
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
 
@@ -59,13 +58,13 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     // Update position during drag
     public void OnDrag(PointerEventData eventData)
     {
+        // Update the position of the dragged item based on the mouse position
         transform.position = Input.mousePosition;
     }
 
     // When drag ends, clean up
     public void OnEndDrag(PointerEventData eventData)
     {
-
         // Reparent back to original parent
         transform.SetParent(lastParent);
 
@@ -76,8 +75,7 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     // When pointer enters, show name and description 
     public void OnPointerEnter(PointerEventData eventData)
     {
-
-        // Instantiate UI elements
+        // Instantiate UI elements for displaying item name and description
         overallCanvas = transform.parent.transform.parent.transform.parent;
         newTitle = Instantiate(textItemPrefab, overallCanvas);
         newDescription = Instantiate(descItemPrefab, overallCanvas);
@@ -96,10 +94,10 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     // When pointer exits, destroy name and description
     public void OnPointerExit(PointerEventData eventData)
     {
+        // Hide and destroy the displayed name and description UI elements
         newTitle.SetActive(false);
         newDescription.SetActive(false);
         Destroy(newTitle.gameObject);
         Destroy(newDescription.gameObject);
     }
-
 }
