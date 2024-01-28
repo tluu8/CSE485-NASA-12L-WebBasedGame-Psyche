@@ -6,84 +6,94 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEditor.Overlays;
 
+// DragScript handles dragging inventory items 
 public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    // The item's sprite
+    // Public variables for UI elements
+    // Image displays item sprite
     public Image anImage;
 
-    // The item's display name and description when hovered over
+    // UI prefabs for displaying item name and description 
     public GameObject textItemPrefab;
     public GameObject descItemPrefab;
 
-    // ** Helper variables to aid in calculation **
-    // overallCanvas = Self explanatory, background canvas of everything
-    // lastParent = The last slot that the item was in
-    // newTitle = A new title to be attached to the item
-    // newDescription = A new description to be attached to the item
-
+    // Helper variables
+    // Canvas is root of UI
     [HideInInspector] public Transform overallCanvas;
+
+    // Last parent transform before drag started
     [HideInInspector] public Transform lastParent;
+
+    // Name and description text objects
     [HideInInspector] public GameObject newTitle;
     [HideInInspector] public GameObject newDescription;
 
-    // The current inventory being used
+    // Reference to inventory system
     private InventorySystem aSystem;
 
     void Start()
     {
-        // Finding the inventory currently in use
+        // Get reference to inventory system
         aSystem = FindObjectOfType<InventorySystem>();
         if (aSystem == null)
         {
-            Debug.LogError("Inventory system not found in the scene!");
+            Debug.LogError("Inventory system not found in scene!");
         }
     }
 
-    // When beginning to drag an item, event handler is called which
-    // makes the image be above everything else,
-    // makes the item's icon not interfere with the drop,
-    // and records the last slot it was successfully placed in
+    // When drag starts, set up drag visuals
     public void OnBeginDrag(PointerEventData eventData)
     {
+
+        // Store last parent for reparenting later
         lastParent = transform.parent;
+
+        // Make image appear above other UI
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
+
+        // Ignore raycasts so image doesn't block drops
         anImage.raycastTarget = false;
     }
 
-    // Event handler to move item to follow cursor when dragging item
+    // Update position during drag
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
     }
 
-    // When completing a drag, the event handler finds a slot to drop in
-    // and re-enables the raycasting of the image
+    // When drag ends, clean up
     public void OnEndDrag(PointerEventData eventData)
     {
+
+        // Reparent back to original parent
         transform.SetParent(lastParent);
+
+        // Re-enable raycasts
         anImage.raycastTarget = true;
     }
 
-    // The event handler logic for when an icon is hovered over
+    // When pointer enters, show name and description 
     public void OnPointerEnter(PointerEventData eventData)
     {
+
+        // Instantiate UI elements
         overallCanvas = transform.parent.transform.parent.transform.parent;
         newTitle = Instantiate(textItemPrefab, overallCanvas);
+        newDescription = Instantiate(descItemPrefab, overallCanvas);
+
+        // Position and populate text 
         newTitle.transform.position.Set(670, 330, 0);
-        TextMeshProUGUI textPortion = newTitle.GetComponent<TextMeshProUGUI>();
-        textPortion.text = transform.name;
+        TextMeshProUGUI titleText = newTitle.GetComponent<TextMeshProUGUI>();
+        titleText.text = transform.name;
         newTitle.SetActive(true);
 
-
-        newDescription = Instantiate(descItemPrefab, overallCanvas);
-        TextMeshProUGUI textDescPortion = newDescription.GetComponent<TextMeshProUGUI>();
-        textDescPortion.text = aSystem.descriptions[transform.name];
+        TextMeshProUGUI descText = newDescription.GetComponent<TextMeshProUGUI>();
+        descText.text = aSystem.descriptions[transform.name];
         newDescription.SetActive(true);
-
     }
 
-    // The event handler logic for when an icon is finished hovering over
+    // When pointer exits, destroy name and description
     public void OnPointerExit(PointerEventData eventData)
     {
         newTitle.SetActive(false);
@@ -91,4 +101,5 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         Destroy(newTitle.gameObject);
         Destroy(newDescription.gameObject);
     }
+
 }
