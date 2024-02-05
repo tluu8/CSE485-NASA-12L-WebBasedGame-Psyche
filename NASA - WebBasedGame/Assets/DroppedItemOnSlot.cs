@@ -79,8 +79,22 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             droppedItem.lastParent = transform;
 
             // Removing each of the parents (two combinable items) from the backend inventory list
-            aSystem.items.Remove(originalItem.gameObject);
-            aSystem.items.Remove(draggedItem.gameObject);
+            foreach (GameObject item in aSystem.items)
+            {
+                if (item.name == originalItem.name)
+                {
+                    aSystem.items.Remove(item);
+                    break;
+                }
+            }
+            foreach (GameObject item in aSystem.items)
+            {
+                if (item.name == draggedItem.name)
+                {
+                    aSystem.items.Remove(item);
+                    break;
+                }
+            }
 
             // Removing the combined items' displayed name and description
             originalItem.newTitle.SetActive(false);
