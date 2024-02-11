@@ -34,8 +34,9 @@ public class ButtonAction : MonoBehaviour
     }
 
     // Move from game scene 1 to title menu scene
-    public void BackButton1() { 
+    public void BackButton1() {
 
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
     }
 
