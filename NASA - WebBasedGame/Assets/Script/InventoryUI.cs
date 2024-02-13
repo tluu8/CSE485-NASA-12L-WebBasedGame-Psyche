@@ -26,6 +26,12 @@ public class InventoryUI : MonoBehaviour
     public Transform inventorySlot7;
     public Transform inventorySlot8;
     public Transform inventorySlot9;
+    public Transform inventorySlot10;
+    public Transform inventorySlot11;
+    public Transform inventorySlot12;
+    public Transform inventorySlot13;
+    public Transform inventorySlot14;
+    public Transform inventorySlot15;
 
     // The backend inventory variable
     private InventorySystem inventory;
@@ -117,6 +123,48 @@ public class InventoryUI : MonoBehaviour
                 return true;
             }
         }
+        foreach (Transform child in inventorySlot10)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot11)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot12)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot13)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot14)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
+        foreach (Transform child in inventorySlot15)
+        {
+            if (child.name == strName)
+            {
+                return true;
+            }
+        }
 
         return false;
     }
@@ -162,13 +210,37 @@ public class InventoryUI : MonoBehaviour
             {
                 return inventorySlot8;
             }
-            /*else if (inventorySlot9.childCount == 0)
+            else if (inventorySlot9.childCount == 0)
             {
                 return inventorySlot9;
+            }
+            else if (inventorySlot10.childCount == 0)
+            {
+                return inventorySlot10;
+            }
+            else if (inventorySlot11.childCount == 0)
+            {
+                return inventorySlot11;
+            }
+            else if (inventorySlot12.childCount == 0)
+            {
+                return inventorySlot12;
+            }
+            else if (inventorySlot13.childCount == 0)
+            {
+                return inventorySlot13;
+            }
+            else if (inventorySlot14.childCount == 0)
+            {
+                return inventorySlot14;
+            }
+            /*else if (inventorySlot15.childCount == 0)
+            {
+                return inventorySlot15;
             }*/
             else
             {
-                return inventorySlot9;
+                return inventorySlot15;
             }
             
         }

@@ -81,7 +81,7 @@ public class DragScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         newDescription = Instantiate(descItemPrefab, overallCanvas);
 
         // Position and populate text 
-        newTitle.transform.position.Set(670, 330, 0);
+        newTitle.transform.position.Set(730, 330, 0);
         TextMeshProUGUI titleText = newTitle.GetComponent<TextMeshProUGUI>();
         titleText.text = transform.name;
         newTitle.SetActive(true);
