@@ -5,12 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 
 public class InventoryUI : MonoBehaviour
 {
     // Prefab for generating objects to fill visual inventory
     // Testing purposes, mainly
     public GameObject itemPrefab;
+    public GameObject asuFab;
+    public GameObject notesFab;
+    public GameObject remoteFab;
 
     // The main inventory panel housing the 9 slots
     public Transform inventoryPanel;
@@ -254,10 +258,30 @@ public class InventoryUI : MonoBehaviour
                 if (!isFound(inventory.items[i].name))
                 {
                     var item = inventory.items[i];
-                    GameObject newItem = Instantiate(itemPrefab, getOpenSlot());
+
+                    if (item.name == "Notes")
+                    {
+                        GameObject newItem = Instantiate(notesFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "ASU Trinket")
+                    {
+                        GameObject newItem = Instantiate(asuFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Blackbox")
+                    {
+                        GameObject newItem = Instantiate(remoteFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else
+                    {
+                        GameObject newItem = Instantiate(itemPrefab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    //GameObject newItem = Instantiate(itemPrefab, getOpenSlot());
                     //GameObject newItem = Instantiate(inventory.items[i], getOpenSlot());
-                    newItem.name = item.name;
-                    Image itemText = newItem.GetComponent<Image>();
+                    //Image itemSprite = newItem.GetComponent<Image>();
                 }
             }
         }

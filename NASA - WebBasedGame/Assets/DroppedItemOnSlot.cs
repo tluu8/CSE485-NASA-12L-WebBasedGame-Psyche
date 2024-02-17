@@ -15,6 +15,8 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
     // needs to be replaced with a system that allows for different kinds of items
     public GameObject itemPrefab;
 
+    public GameObject satFab;
+
     void Start()
     {
         // Get reference to the inventory system during the start of the script
@@ -75,6 +77,9 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             // The item in the slot
             DragScript originalItem = transform.GetChild(0).GetComponent<DragScript>();
 
+            string originalName = originalItem.name;
+            string droppedName = droppedItem.name;
+
             // The item being held by the cursor is marked to drop in the slot
             droppedItem.lastParent = transform;
 
@@ -112,12 +117,27 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             // NOTE: This is just for testing; needs to be altered to accommodate rest of the game
             //       i.e. Needs change in the creation of the object to allow different objects to be created
             //            using dictionaries of combinable objects, correct names, etc.
-            GameObject newItem = Instantiate(itemPrefab, transform);
-            newItem.name = "TestItem4";
-            newItem.transform.name = "TestItem4";
+            
+            if ((originalName == "Notes" && droppedName == "Blackbox") || (originalName == "Blackbox" && droppedName == "Notes"))
+            {
+                GameObject newItem = Instantiate(satFab, transform);
+                newItem.name = "Satellite";
+                newItem.transform.name = "Satellite";
 
-            // Adding the new item to the list of inventory in the backend list
-            aSystem.AddItem(newItem);
+                // Adding the new item to the list of inventory in the backend list
+                aSystem.AddItem(newItem);
+            }
+            else
+            {
+                GameObject newItem = Instantiate(itemPrefab, transform);
+                newItem.name = "TestItem4";
+                newItem.transform.name = "TestItem4";
+
+                // Adding the new item to the list of inventory in the backend list
+                aSystem.AddItem(newItem);
+            }
+
+            
         }
     }
 }
