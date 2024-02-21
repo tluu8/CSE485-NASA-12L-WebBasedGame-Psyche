@@ -7,16 +7,20 @@ using UnityEngine.SceneManagement;
 public class ButtonAction : MonoBehaviour
 {
     public GameObject PausePanel;   // Create object shown on Unity inspector
+    [SerializeField] public AudioSource audio;       // Create AudioSource object on Unity inspector
 
     // Move from menu scene to the first game scene
     public void StartGameButton() {
 
+        audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
     // Move from menu scene to the credit scene
     public void CreditButton() {
 
+        audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
