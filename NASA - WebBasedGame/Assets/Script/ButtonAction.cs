@@ -7,20 +7,16 @@ using UnityEngine.SceneManagement;
 public class ButtonAction : MonoBehaviour
 {
     public GameObject PausePanel;   // Create object shown on Unity inspector
-    [SerializeField] public AudioSource audio;       // Create AudioSource object on Unity inspector
 
     // Move from menu scene to the first game scene
     public void StartGameButton() {
 
-        audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
     }
 
     // Move from menu scene to the credit scene
     public void CreditButton() {
 
-        audio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
@@ -37,8 +33,8 @@ public class ButtonAction : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
-    // Move from game scene 1 to title menu scene
-    public void BackButton1() {
+    // Exit the game (move to the tile menu scene)
+    public void ExitButton() {
 
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
