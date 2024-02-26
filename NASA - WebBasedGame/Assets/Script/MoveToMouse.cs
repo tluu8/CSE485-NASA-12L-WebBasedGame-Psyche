@@ -18,6 +18,13 @@ public class MoveToMouse : MonoBehaviour
     // The fixed Y-coordinate when touching the floor
     private float fixedY = -3.495f;
 
+    private Animator playerAnim;
+
+    void Awake()
+    {
+        playerAnim = GetComponent<Animator>();
+    }
+        
     // Called when the script is first run
     void Start()
     {
@@ -50,23 +57,43 @@ public class MoveToMouse : MonoBehaviour
             // Keep the original Z-coordinate
             target.z = transform.position.z;
 
+            // Set the direction of the player
+            if (transform.position.x > target.x)
+            {
+                if (transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                }
+            }
+            else
+            {
+                if (transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                }
+            }
+
             // Set the isMoving flag to true
             isMoving = true;
+            playerAnim.SetBool("play_Walk", true);
         }
 
         // Check if the object is currently moving
         if (isMoving)
         {
+            
             // Move the object towards the target position
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
             // Check if the object has reached the target with a small tolerance
             if (Vector3.Distance(transform.position, target) < 0.01f)
             {
+                playerAnim.SetBool("play_Walk", false);
                 // Snap directly to the target position
                 transform.position = target;
 
                 // Set the isMoving flag to false
+                //playerAnim.SetBool("play_Walk", false);
                 isMoving = false;
             }
         }
