@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d1b8e2e34422d42b7b9f350f2c494a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 1268782009}
+  soundEffect: {fileID: 1268782009}
   volumeSlider: {fileID: 2093985860}
 --- !u!1 &284433386
 GameObject:

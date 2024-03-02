@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class PlaySoundEffect : MonoBehaviour { 
 
-    public AudioSource audio;   // Create AudioSource object
+    public AudioSource soundEffect;   // Create AudioSource object
     public Slider volumeSlider;     // Create Slider object
 
     // Play audio file method
     public void playSound() { 
 
-        audio.Play();
+       soundEffect.Play();
     }
 
     // Set volume at 100% at the begining method
-    void Start() {
+    public void Start() {
 
         volumeSlider.value = 1;
     }

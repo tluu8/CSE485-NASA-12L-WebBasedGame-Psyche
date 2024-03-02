@@ -861,7 +861,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1652304448715274947}
         m_TargetAssemblyTypeName: ButtonAction, Assembly-CSharp
-        m_MethodName: BackButton
+        m_MethodName: CreditBackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1311,7 +1311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d1b8e2e34422d42b7b9f350f2c494a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 796749500}
+  soundEffect: {fileID: 796749500}
+  volumeSlider: {fileID: 0}
 --- !u!4 &6851163299324462323
 Transform:
   m_ObjectHideFlags: 0
@@ -1484,6 +1485,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 456851359}
   - {fileID: 6582943973861210678}
-  - {fileID: 117350879}
   - {fileID: 6851163299324462323}
   - {fileID: 796749499}
+  - {fileID: 117350879}
