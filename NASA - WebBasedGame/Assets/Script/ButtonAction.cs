@@ -37,7 +37,7 @@ public class ButtonAction : MonoBehaviour
     public void TutorialBackButton()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
     }
 
     //Move from intro scene to the game scene
@@ -45,14 +45,6 @@ public class ButtonAction : MonoBehaviour
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-    }
-
-    // Exit the game (move to the tile menu scene)
-    public void ExitButton() {
-
-        Time.timeScale = 1;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
-        SceneManager.LoadScene("TitleMenuScene");
     }
 
     // Show pause menu after clicking on pause button
@@ -69,4 +61,19 @@ public class ButtonAction : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    //Move from game scene to the tutorial scene
+    public void PauseTutorialButton()
+    {
+
+       
+    }
+
+    // Exit the game (move to the tile menu scene)
+    public void ExitButton()
+    {
+
+        Time.timeScale = 1;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+        SceneManager.LoadScene("TitleMenuScene");
+    }
 }
