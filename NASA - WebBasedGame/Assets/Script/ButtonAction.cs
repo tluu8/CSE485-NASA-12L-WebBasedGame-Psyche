@@ -51,7 +51,8 @@ public class ButtonAction : MonoBehaviour
     public void ExitButton() {
 
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+        SceneManager.LoadScene("TitleMenuScene");
     }
 
     // Show pause menu after clicking on pause button

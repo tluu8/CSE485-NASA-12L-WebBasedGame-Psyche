@@ -1696,6 +1696,7 @@ GameObject:
   - component: {fileID: 5363449688601964814}
   - component: {fileID: 6396039302255687735}
   - component: {fileID: 7966379070100613780}
+  - component: {fileID: 7966379070100613781}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -1717,6 +1718,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 351427847074463474}
   volumeSlider: {fileID: 0}
+--- !u!114 &7966379070100613781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966379070100613779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adebe6fab9d740147aae0fe185692ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8673699329262476685
 RectTransform:
   m_ObjectHideFlags: 0
