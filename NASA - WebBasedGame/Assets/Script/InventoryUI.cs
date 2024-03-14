@@ -14,7 +14,8 @@ public class InventoryUI : MonoBehaviour
     public GameObject itemPrefab;
     public GameObject asuFab;
     public GameObject notesFab;
-    public GameObject remoteFab;
+    public GameObject fieldsFab;
+    public GameObject panelsFab;
 
     // The main inventory panel housing the 9 slots
     public Transform inventoryPanel;
@@ -269,9 +270,14 @@ public class InventoryUI : MonoBehaviour
                         GameObject newItem = Instantiate(asuFab, getOpenSlot());
                         newItem.name = item.name;
                     }
-                    else if (item.name == "Blackbox")
+                    else if (item.name == "Electromagnetic Fields")
                     {
-                        GameObject newItem = Instantiate(remoteFab, getOpenSlot());
+                        GameObject newItem = Instantiate(fieldsFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Solar Panels")
+                    {
+                        GameObject newItem = Instantiate(panelsFab, getOpenSlot());
                         newItem.name = item.name;
                     }
                     else

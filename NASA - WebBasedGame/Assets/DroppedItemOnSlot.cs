@@ -16,6 +16,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
     public GameObject itemPrefab;
 
     public GameObject satFab;
+    public GameObject xreFab;
 
     void Start()
     {
@@ -118,11 +119,12 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             //       i.e. Needs change in the creation of the object to allow different objects to be created
             //            using dictionaries of combinable objects, correct names, etc.
             
-            if ((originalName == "Notes" && droppedName == "Blackbox") || (originalName == "Blackbox" && droppedName == "Notes"))
+            if ((originalName == "Solar Panels" && droppedName == "Electromagnetic Fields") || 
+                (originalName == "Electromagnetic Fields" && droppedName == "Solar Panels"))
             {
-                GameObject newItem = Instantiate(satFab, transform);
-                newItem.name = "Satellite";
-                newItem.transform.name = "Satellite";
+                GameObject newItem = Instantiate(xreFab, transform);
+                newItem.name = "Xenon Rocket Engines";
+                newItem.transform.name = "Xenon Rocket Engines";
 
                 // Adding the new item to the list of inventory in the backend list
                 aSystem.AddItem(newItem);

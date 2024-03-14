@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4347575281230123253}
   - component: {fileID: 2729503172107866231}
   m_Layer: 5
-  m_Name: RemoteFab
+  m_Name: EFieldsFab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
