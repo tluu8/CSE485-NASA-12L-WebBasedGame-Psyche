@@ -20,11 +20,8 @@ public class KeepObj : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log(nameID + " is accounted for.");
-        //Debug.Log("This Scene is called: " + SceneManager.GetActiveScene().name + " with " + Object.FindObjectsOfType<KeepObj>(true).Length + " total objects.");
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "TitleMenuScene" || SceneManager.GetActiveScene().name == "IntroductionScene")
@@ -60,16 +57,10 @@ public class KeepObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "GameScene3")
-        {
-            
-            //Debug.Log(nameID + " is here in this scene.");
-        }
         if (SceneManager.GetActiveScene().name == "TitleMenuScene" || SceneManager.GetActiveScene().name == "IntroductionScene")
         {
             Destroy(gameObject);
         }
-        //Debug.Log("This Scene is called: " + SceneManager.GetActiveScene().name);
     }
 
 
