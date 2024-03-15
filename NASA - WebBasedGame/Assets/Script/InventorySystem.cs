@@ -15,17 +15,30 @@ public class InventorySystem : MonoBehaviour
 
     private void Start()
     {
-        combinableItems.Add("TestItem1", "TestItem3");
-        combinableItems.Add("TestItem3", "TestItem1");
-        combinableItems.Add("Blackbox", "Notes");
-        combinableItems.Add("Notes", "Blackbox");
-        combinableItems.Add("TestItem2", " ");
+        //combinableItems.Add("TestItem1", "TestItem3");
+        //combinableItems.Add("TestItem3", "TestItem1");
+        //combinableItems.Add("Blackbox", "Notes");
+        //combinableItems.Add("Notes", "Blackbox");
+        //combinableItems.Add("TestItem2", " ");
+        //combinableItems.Add("Satellite", " ");
+        //combinableItems.Add("TestItem4", " ");
+
+        // --- First area combinable items ---
         combinableItems.Add("ASU Trinket", " ");
         combinableItems.Add("Electromagnetic Fields", "Solar Panels");
         combinableItems.Add("Solar Panels", "Electromagnetic Fields");
-        combinableItems.Add("Satellite", " ");
-        combinableItems.Add("TestItem4", " ");
+        combinableItems.Add("Falcon Heavy Launcher", " ");
+        combinableItems.Add("Xenon Rocket Engines", " ");
 
+        // --- Second area combinable items ---
+        combinableItems.Add("Neutron Spectrometer", "Cosmic Rays");
+        combinableItems.Add("Cosmic Rays", "Neutron Spectrometer");   
+        combinableItems.Add("Magnetometer", " ");
+        combinableItems.Add("X-Band Radio Frequency", " ");
+        combinableItems.Add("Gamma Ray Spectrometer", " ");
+
+
+        // First area item descriptions
         descriptions.Add("ASU Trinket", "A trinket of a university in Arizona that is leading the development and" +
             " launch of the Psyche space mission and well known for other scientific initiatives.");
 
@@ -42,6 +55,25 @@ public class InventorySystem : MonoBehaviour
         descriptions.Add("Xenon Rocket Engines", "An extremely efficient engine design that uses charged atoms from electromagnetic" +
             " fields to thrust forwards. This creates a small amount of thrust in a vacuum but uses extremely little energy and fuel" +
             " to do so and is used on both the Psyche probe and many other long distance missions.");
+
+        // Second area item descriptions
+        descriptions.Add("Magnetometer", "A device that measures magnetic fields created by both magnetic metals and " +
+            "planetary objects such as earth");
+
+        descriptions.Add("Cosmic Rays", "Charged particles that are from stars such as the sun and when the particles hit" +
+            " a surface that surface emits a specific amount and type of neutrons and gamma rays");
+
+        descriptions.Add("X-Band Radio Frequency", "A specific range of radio waves that are used for radar imaging to better" +
+            " visualize an area");
+
+        descriptions.Add("Neutron Spectrometer", "A device that measures the amount of neutrons being released from a material" +
+            " or area that can be used to identify what a specific material might be made of");
+
+        descriptions.Add("Gamma Ray Spectrometer", "This device measures the amount and type of gamma rays a material emits when" +
+            " hit by cosmic rays, the amount and type are unique for each element and is extremely useful for determining what an" +
+            " asteroid or planet is made of");
+
+
     }
 
     public void AddItem(GameObject item)
