@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FixedYPosition : MonoBehaviour
 {
-    public float fixedY = -3.495f; // The Y coordinate you want to fix the GameObject at
+    public float fixedY = -2.9f; // The Y coordinate you want to fix the GameObject at
 
     void Update()
     {
