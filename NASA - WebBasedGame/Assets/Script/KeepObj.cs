@@ -12,6 +12,7 @@ public class KeepObj : MonoBehaviour
 
     private void Awake()
     {
+        
         if (nameID == "")
         {
             nameID = name + SceneManager.GetActiveScene().name;
@@ -24,6 +25,7 @@ public class KeepObj : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Hi");
         if (SceneManager.GetActiveScene().name == "TitleMenuScene" || SceneManager.GetActiveScene().name == "IntroductionScene")
         {
             Destroy(gameObject);
@@ -32,9 +34,9 @@ public class KeepObj : MonoBehaviour
         {
             for (int i = 0; i < Object.FindObjectsOfType<KeepObj>().Length; i++)
             {
-                if (Object.FindObjectsOfType<KeepObj>()[i] != this)
+                if (Object.FindObjectsOfType<KeepObj>(true)[i] != this)
                 {
-                    if (Object.FindObjectsOfType<KeepObj>()[i].nameID == nameID)
+                    if (Object.FindObjectsOfType<KeepObj>(true)[i].nameID == nameID)
                     {
                         Destroy(gameObject);
                     }

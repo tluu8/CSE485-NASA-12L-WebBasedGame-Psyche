@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyShortcuts : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class KeyShortcuts : MonoBehaviour
             {
                 buttonActions.Pause();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SceneManager.LoadScene("GameScene");
         }
     }
 }

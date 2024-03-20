@@ -76,6 +76,19 @@ public class InventorySystem : MonoBehaviour
 
     }
 
+    public bool findItem(string searchedName)
+    {
+        foreach (GameObject item in items)
+        {
+            if (item.name == searchedName)
+            {
+                return true;
+            }
+                
+        }
+        return false;
+    }
+
     public void AddItem(GameObject item)
     {
         items.Add(item);
