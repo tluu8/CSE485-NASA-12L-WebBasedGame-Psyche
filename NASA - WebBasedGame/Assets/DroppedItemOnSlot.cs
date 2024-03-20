@@ -73,7 +73,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
         // If the inventory slot isn't empty but the item found in the slot is combinable
         // with the currently being held item in the mouse pointer, then the combination
         // process will take effect
-        else if (IsCombinable(transform.GetChild(0).gameObject, draggedItem.gameObject))
+        else if (IsCombinable(transform.GetChild(0).gameObject, draggedItem.gameObject) && GameObject.Find("TitleText(Clone)") != null)
         {
             // The item in the slot
             DragScript originalItem = transform.GetChild(0).GetComponent<DragScript>();
