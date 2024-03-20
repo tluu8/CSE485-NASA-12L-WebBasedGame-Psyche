@@ -39,7 +39,7 @@ public class InventoryUI : MonoBehaviour
     public Transform inventorySlot15;
 
     // The backend inventory variable
-    private InventorySystem inventory;
+    public InventorySystem inventory;
 
     // Toggler variable to turn inventory screen on and off
     private bool isInventoryVisible = false;
@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         inventory = FindObjectOfType<InventorySystem>();
-        if (inventory == null)
+        if (!inventory)
         {
             Debug.LogError("Inventory system not found in the scene!");
         }

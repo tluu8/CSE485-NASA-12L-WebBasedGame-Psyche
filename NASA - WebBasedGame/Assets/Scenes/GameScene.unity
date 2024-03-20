@@ -4253,6 +4253,7 @@ MonoBehaviour:
   inventorySlot13: {fileID: 576264013}
   inventorySlot14: {fileID: 17673810}
   inventorySlot15: {fileID: 723190700}
+  inventory: {fileID: 1941446816}
 --- !u!114 &1615065585
 MonoBehaviour:
   m_ObjectHideFlags: 0
