@@ -44,9 +44,5 @@ public class KeyShortcuts : MonoBehaviour
                 buttonActions.Pause();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SceneManager.LoadScene("GameScene");
-        }
     }
 }
