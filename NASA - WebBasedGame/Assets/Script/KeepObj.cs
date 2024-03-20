@@ -25,7 +25,6 @@ public class KeepObj : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Hi");
         if (SceneManager.GetActiveScene().name == "TitleMenuScene" || SceneManager.GetActiveScene().name == "IntroductionScene")
         {
             Destroy(gameObject);
