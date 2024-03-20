@@ -38,6 +38,16 @@ public class KeyShortcuts : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
                 inventoryUI.ToggleInventory();
+                if (GameObject.Find("TitleText(Clone)") != null)
+                {
+                    Destroy(GameObject.Find("TitleText(Clone)").gameObject);
+                    Destroy(GameObject.Find("DescText(Clone)").gameObject);
+                    if (inventoryUI.gameObject.activeInHierarchy)
+                    {
+                        inventoryUI.gameObject.SetActive(false);
+                    }
+                }
+                
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
