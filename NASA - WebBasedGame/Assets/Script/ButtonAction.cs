@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonAction : MonoBehaviour
 {
-    public GameObject PausePanel;   // Create object shown on Unity inspector
+    public GameObject PausePanel, TutorialCanvas;   // Create object shown on Unity inspector
 
     // Move from menu scene to the first game scene
     public void StartGameButton() {
@@ -61,11 +61,18 @@ public class ButtonAction : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    //Move from game scene to the tutorial scene
+    // Show tutorial after clicking on tutorial button from pause menu
     public void PauseTutorialButton()
     {
+        
+        TutorialCanvas.SetActive(true);
+    }
 
-       
+    // Close the tutorial page after clicking on the close button
+    public void PauseTutorialCloseButton()
+    {
+
+        TutorialCanvas.SetActive(false);
     }
 
     // Exit the game (move to the tile menu scene)
