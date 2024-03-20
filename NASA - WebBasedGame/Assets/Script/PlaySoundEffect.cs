@@ -16,8 +16,10 @@ public class PlaySoundEffect : MonoBehaviour {
 
     // Set volume at 100% at the begining method
     public void Start() {
-
-        volumeSlider.value = 1;
+        if (volumeSlider)
+        {
+            volumeSlider.value = 1;
+        }
     }
 
     // Update the volume while sliding the volume bar method
