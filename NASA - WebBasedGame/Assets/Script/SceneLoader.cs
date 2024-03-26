@@ -9,6 +9,6 @@ public class SceneLoader : MonoBehaviour
     public void OnEnable()
     {
 
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("TitleMenuScene", LoadSceneMode.Single);
     }
 }
