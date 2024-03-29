@@ -115,4 +115,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6976540902254431227, guid: 1bf5ff92d2a147a4cbcef33b052a2a7a, type: 3}
   satFab: {fileID: 1216190442600875303, guid: b04b6c68f20c36941a3a1e20dd353713, type: 3}
-  xreFab: {fileID: 82099876517941030, guid: a3e8d5e7ca21a7f43bb4a9643c153d81, type: 3}
+  solarElecFab: {fileID: 82099876517941030, guid: a3e8d5e7ca21a7f43bb4a9643c153d81, type: 3}

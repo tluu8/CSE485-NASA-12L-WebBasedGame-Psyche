@@ -19,7 +19,7 @@ public class DoorTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && inventory.findItem("Xenon Rocket Engines") && sceneName == "GameScene2")
+        if (other.CompareTag("Player") && inventory.findItem("Solar Electric Propulsion") && sceneName == "GameScene2")
         {
             if (GameObject.Find("HintText"))
             {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5976967002858134349}
   - component: {fileID: 7497399198486891164}
   m_Layer: 5
-  m_Name: XREFab
+  m_Name: solElecFab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

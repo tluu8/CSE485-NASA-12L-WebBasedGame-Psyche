@@ -265,7 +265,7 @@ public class InventoryUI : MonoBehaviour
                         GameObject newItem = Instantiate(notesFab, getOpenSlot());
                         newItem.name = item.name;
                     }
-                    else if (item.name == "ASU Trinket")
+                    else if (item.name == "Arizona State University")
                     {
                         GameObject newItem = Instantiate(asuFab, getOpenSlot());
                         newItem.name = item.name;

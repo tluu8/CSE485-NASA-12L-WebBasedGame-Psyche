@@ -16,7 +16,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
     public GameObject itemPrefab;
 
     public GameObject satFab;
-    public GameObject xreFab;
+    public GameObject solarElecFab;
 
     void Start()
     {
@@ -122,9 +122,9 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             if ((originalName == "Solar Panels" && droppedName == "Electromagnetic Fields") || 
                 (originalName == "Electromagnetic Fields" && droppedName == "Solar Panels"))
             {
-                GameObject newItem = Instantiate(xreFab, transform);
-                newItem.name = "Xenon Rocket Engines";
-                newItem.transform.name = "Xenon Rocket Engines";
+                GameObject newItem = Instantiate(solarElecFab, transform);
+                newItem.name = "Solar Electric Propulsion";
+                newItem.transform.name = "Solar Electric Propulsion";
 
                 // Adding the new item to the list of inventory in the backend list
                 aSystem.AddItem(newItem);
