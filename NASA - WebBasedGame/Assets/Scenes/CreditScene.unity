@@ -419,11 +419,11 @@ MonoBehaviour:
     Psyche Mission (https://psyche.asu.edu). \u201CPsyche: A Journey to a Metal World\u201D
     [Contract number NNM16AA09C] is part of the NASA Discovery Program mission to
     solar system targets. Trade names and trademarks of ASU and NASA are used in
-    this work for identification only. Their usage does not constitute an official
-    endorsement, either expressed or implied, by Arizona State University or National
-    Aeronautics and Space Administration. The content is solely the responsibility
-    of the authors and does not necessarily represent the official views of ASU or
-    NASA (https://www.nasa.gov)."
+    this work for identification only. Though content was drawn from NASA's website
+    (https://www.nasa.gov), their usage does not constitute an official endorsement,
+    either expressed or implied, by Arizona State University or National Aeronautics
+    and Space Administration. The content is solely the responsibility of the authors
+    and does not necessarily represent the official views of ASU or NASA (https://www.nasa.gov)."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -450,8 +450,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
