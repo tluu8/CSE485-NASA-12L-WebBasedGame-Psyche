@@ -423,7 +423,7 @@ MonoBehaviour:
     endorsement, either expressed or implied, by Arizona State University or National
     Aeronautics and Space Administration. The content is solely the responsibility
     of the authors and does not necessarily represent the official views of ASU or
-    NASA."
+    NASA (https://www.nasa.gov)."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.00036621094, w: -2.0277405}
+  m_margin: {x: 0, y: 0, z: -12.415039, w: -2.0277405}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -780,6 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 0}
+  TutorialCanvas: {fileID: 0}
 --- !u!224 &1873529260628853415
 RectTransform:
   m_ObjectHideFlags: 0
