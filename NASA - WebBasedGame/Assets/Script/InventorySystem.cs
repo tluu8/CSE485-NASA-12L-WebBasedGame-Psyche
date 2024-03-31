@@ -83,6 +83,9 @@ public class InventorySystem : MonoBehaviour
             " metal from the core of a planetesimal. A recent mission was launched that will determine what the asteroid is composed of and its internal structure." +
             " The spacecraft is supposed to reach the asteroid in 2029.");
 
+        descriptions.Add("The Mission to Psyche", "The Psyche mission is a currently ongoing mission to map and determine the structure of the Psyche asteroid in order to" +
+            " investigate hypotheses about the asteroid and gain more information about how planets such as Earth came to be using a specialized satellite.");
+
     }
 
     public bool findItem(string searchedName)
