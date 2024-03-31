@@ -59,5 +59,23 @@ public class DoorTransition : MonoBehaviour
                 }
             }
         }
+        if (other.CompareTag("Player") && inventory.findItem("The Mission to Psyche") && sceneName == "EndingScene")
+        {
+            if (GameObject.Find("HintText3"))
+            {
+                GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = false;
+            }
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            if (other.CompareTag("Player") && sceneName == "EndingScene")
+            {
+                if (GameObject.Find("HintText3"))
+                {
+                    GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = true;
+                }
+            }
+        }
     }
 }
