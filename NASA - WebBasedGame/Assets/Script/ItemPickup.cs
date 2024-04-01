@@ -5,6 +5,7 @@ using UnityEngine;
 // ItemPickup handles the pickup of items by the player
 public class ItemPickup : MonoBehaviour
 {
+    private List<string> collectedItems = new List<string>();
     // Called when another collider enters the trigger area of the current object
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,7 +30,9 @@ public class ItemPickup : MonoBehaviour
             inventory.AddItem(gameObject);
         }
 
+        collectedItems.Add(gameObject.name);
         // Deactivate the current item, assuming it has been picked up
         gameObject.SetActive(false);
     }
+
 }

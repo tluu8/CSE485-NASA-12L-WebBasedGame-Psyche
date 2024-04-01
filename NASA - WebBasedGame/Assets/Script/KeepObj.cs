@@ -15,7 +15,7 @@ public class KeepObj : MonoBehaviour
         
         if (nameID == "")
         {
-            nameID = name + SceneManager.GetActiveScene().name;
+            nameID = name;// + SceneManager.GetActiveScene().name;
         }  
         if (SceneManager.GetActiveScene().name == "TitleMenuScene" || SceneManager.GetActiveScene().name == "IntroductionScene")
         {
@@ -31,7 +31,7 @@ public class KeepObj : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < Object.FindObjectsOfType<KeepObj>().Length; i++)
+            for (int i = 0; i < Object.FindObjectsOfType<KeepObj>(true).Length; i++)
             {
                 if (Object.FindObjectsOfType<KeepObj>(true)[i] != this)
                 {

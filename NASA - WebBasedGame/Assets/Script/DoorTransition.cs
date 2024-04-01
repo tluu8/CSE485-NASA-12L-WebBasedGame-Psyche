@@ -21,16 +21,28 @@ public class DoorTransition : MonoBehaviour
     {
         if (other.CompareTag("Player") && sceneName == "GameScene")
         {
+            if (Object.FindObjectsOfType<ItemCheck>().Length > 0) 
+            { 
+                for (int i = 0; i < Object.FindObjectsOfType<ItemCheck>().Length; i++) 
+                {
+                    Object.FindObjectsOfType<ItemCheck>()[i].gameObject.SetActive(false);
+                }
+            }
             SceneManager.LoadScene(sceneName);
         }
         if (other.CompareTag("Player") && inventory.findItem("Solar Electric Propulsion") && sceneName == "GameScene2")
         {
+
             if (GameObject.Find("HintText"))
             {
                 GameObject.Find("HintText").GetComponent<TextMeshProUGUI>().enabled = false;
                 GameObject.Find("HintText2").GetComponent<TextMeshProUGUI>().enabled = false;
             }
             SceneManager.LoadScene(sceneName);
+            for (int i = 0; i < Object.FindObjectsOfType<ItemCheck>(true).Length; i++)
+            {
+                
+            }
         }
         else
         {
