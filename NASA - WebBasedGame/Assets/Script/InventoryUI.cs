@@ -16,6 +16,15 @@ public class InventoryUI : MonoBehaviour
     public GameObject notesFab;
     public GameObject fieldsFab;
     public GameObject panelsFab;
+    public GameObject falconFab;
+    public GameObject specFab;
+    public GameObject cosmicFab;
+    public GameObject magnetFab;
+    public GameObject xbandFab;
+    public GameObject densityFab;
+    public GameObject rotationFab;
+    public GameObject orbitalFab;
+    public GameObject psyAstFab;
 
     // The main inventory panel housing the 9 slots
     public Transform inventoryPanel;
@@ -278,6 +287,51 @@ public class InventoryUI : MonoBehaviour
                     else if (item.name == "Solar Panels")
                     {
                         GameObject newItem = Instantiate(panelsFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Falcon Heavy Rocket")
+                    {
+                        GameObject newItem = Instantiate(falconFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Magnetometer")
+                    {
+                        GameObject newItem = Instantiate(magnetFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Cosmic Rays")
+                    {
+                        GameObject newItem = Instantiate(cosmicFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "X-Band Radio Frequency")
+                    {
+                        GameObject newItem = Instantiate(xbandFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Neutron Spectrometer")
+                    {
+                        GameObject newItem = Instantiate(specFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Density")
+                    {
+                        GameObject newItem = Instantiate(densityFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Orbital Period")
+                    {
+                        GameObject newItem = Instantiate(orbitalFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Rotation Period")
+                    {
+                        GameObject newItem = Instantiate(rotationFab, getOpenSlot());
+                        newItem.name = item.name;
+                    }
+                    else if (item.name == "Psyche Asteroid")
+                    {
+                        GameObject newItem = Instantiate(psyAstFab, getOpenSlot());
                         newItem.name = item.name;
                     }
                     else

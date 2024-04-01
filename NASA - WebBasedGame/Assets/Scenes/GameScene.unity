@@ -3665,7 +3665,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f3019ce8701c834eaf23d27c6301978, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc7aea453c567464fb468497027b27a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4525,6 +4525,15 @@ MonoBehaviour:
   notesFab: {fileID: 3245917800078832046, guid: f596ac009e08a6046ad4b3989693a0ce, type: 3}
   fieldsFab: {fileID: 824488630603203050, guid: c7671b764f781f1419e631246586e57b, type: 3}
   panelsFab: {fileID: 8066050099900104662, guid: ac93bc898bdc2c04e828eea344ec0a47, type: 3}
+  falconFab: {fileID: 8292099959044238155, guid: b73cb93377592e34db880c194dc708a2, type: 3}
+  specFab: {fileID: 5774659426749036307, guid: 4714cd9413741d14aa288855089b5b1e, type: 3}
+  cosmicFab: {fileID: 4739026872201042159, guid: caa75e4e4042ae342b64e90fa754dc36, type: 3}
+  magnetFab: {fileID: 9098410216827369971, guid: a5bcf4412f13d5f40b128434429c8850, type: 3}
+  xbandFab: {fileID: 6226511904322029404, guid: 52f57f4abb401bc458d8895421f85e4c, type: 3}
+  densityFab: {fileID: 8821269380533683586, guid: 1afe41ac5d5049b48bc27a65e189d506, type: 3}
+  rotationFab: {fileID: 1129258430562082426, guid: 84f78874709e9e9418646077c20229d0, type: 3}
+  orbitalFab: {fileID: 131577685903471630, guid: 0860c3effd4c9ee478ffcaa3c94e1af5, type: 3}
+  psyAstFab: {fileID: 1879113145893669427, guid: 64317850c74526a41b127e22d685c331, type: 3}
   inventoryPanel: {fileID: 1615065583}
   inventorySlot1: {fileID: 1379196247}
   inventorySlot2: {fileID: 1012879686}
