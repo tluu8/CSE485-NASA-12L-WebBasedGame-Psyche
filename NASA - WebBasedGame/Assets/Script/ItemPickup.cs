@@ -28,8 +28,8 @@ public class ItemPickup : MonoBehaviour
             // Add the current item (gameObject) to the player's inventory
             inventory.AddItem(gameObject);
         }
-
         // Deactivate the current item, assuming it has been picked up
         gameObject.SetActive(false);
     }
+
 }

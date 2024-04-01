@@ -19,6 +19,32 @@ public class DoorTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Player") && sceneName == "GameScene")
+        {
+            if (Object.FindObjectsOfType<ItemCheck>().Length > 0) 
+            {
+                if (GameObject.Find("HintText4"))
+                {
+                    if (GameObject.Find("HintText3"))
+                    {
+                        GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = false;
+                    }
+                    GameObject.Find("HintText4").GetComponent<TextMeshProUGUI>().enabled = true;
+                }
+            }
+            else
+            {
+                if (GameObject.Find("HintText4"))
+                {
+                    GameObject.Find("HintText4").GetComponent<TextMeshProUGUI>().enabled = false;
+                }
+                if (GameObject.Find("HintText3"))
+                {
+                    GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = false;
+                }
+                SceneManager.LoadScene(sceneName);
+            }
+        }
         if (other.CompareTag("Player") && inventory.findItem("Solar Electric Propulsion") && sceneName == "GameScene2")
         {
             if (GameObject.Find("HintText"))
@@ -56,6 +82,24 @@ public class DoorTransition : MonoBehaviour
                 {
                     GameObject.Find("HintText").GetComponent<TextMeshProUGUI>().enabled = false;
                     GameObject.Find("HintText2").GetComponent<TextMeshProUGUI>().enabled = true;
+                }
+            }
+        }
+        if (other.CompareTag("Player") && inventory.findItem("The Mission to Psyche") && sceneName == "EndingScene")
+        {
+            if (GameObject.Find("HintText3"))
+            {
+                GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = false;
+            }
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            if (other.CompareTag("Player") && sceneName == "EndingScene")
+            {
+                if (GameObject.Find("HintText3"))
+                {
+                    GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = true;
                 }
             }
         }
