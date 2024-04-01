@@ -99,6 +99,10 @@ public class DoorTransition : MonoBehaviour
             {
                 if (GameObject.Find("HintText3"))
                 {
+                    if (GameObject.Find("HintText4"))
+                    {
+                        GameObject.Find("HintText4").GetComponent<TextMeshProUGUI>().enabled = false;
+                    }
                     GameObject.Find("HintText3").GetComponent<TextMeshProUGUI>().enabled = true;
                 }
             }

@@ -18,6 +18,7 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
     public GameObject satFab;
     public GameObject solarElecFab;
     public GameObject gamFab;
+    public GameObject missionFab;
 
     void Start()
     {
@@ -82,75 +83,133 @@ public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
             string originalName = originalItem.name;
             string droppedName = droppedItem.name;
 
-            // The item being held by the cursor is marked to drop in the slot
-            droppedItem.lastParent = transform;
-
-            // Removing each of the parents (two combinable items) from the backend inventory list
-            foreach (GameObject item in aSystem.items)
+            if (originalName == "Density" || originalName == "Rotation Period" || originalName == "Orbital Period")
             {
-                if (item.name == originalItem.name)
+                if (aSystem.findItemC("Density") && aSystem.findItemC("Rotation Period") && aSystem.findItemC("Orbital Period"))
                 {
-                    aSystem.items.Remove(item);
-                    break;
+                    // The item being held by the cursor is marked to drop in the slot
+                    droppedItem.lastParent = transform;
+
+                    // Removing each of the parents (two combinable items) from the backend inventory list
+                    foreach (GameObject item in aSystem.items)
+                    {
+                        if (item.name == "Density")
+                        {
+                            aSystem.items.Remove(item);
+                            break;
+                        }
+                    }
+                    foreach (GameObject item in aSystem.items)
+                    {
+                        if (item.name == "Rotation Period")
+                        {
+                            aSystem.items.Remove(item);
+                            break;
+                        }
+                    }
+                    foreach (GameObject item in aSystem.items)
+                    {
+                        if (item.name == "Orbital Period")
+                        {
+                            aSystem.items.Remove(item);
+                            break;
+                        }
+                    }
+
+                    // Removing the combined items' displayed name and description
+                    originalItem.newTitle.SetActive(false);
+                    originalItem.newDescription.SetActive(false);
+                    Destroy(originalItem.newTitle.gameObject);
+                    Destroy(originalItem.newDescription.gameObject);
+                    Destroy(droppedItem.newTitle.gameObject);
+                    Destroy(droppedItem.newDescription.gameObject);
+
+                    // Deleting all of the old inventory items
+                    Destroy(GameObject.Find("Rotation Period").gameObject);
+                    Destroy(GameObject.Find("Orbital Period").gameObject);
+                    Destroy(GameObject.Find("Density").gameObject);
+
+                    
+                    GameObject newItem = Instantiate(missionFab, transform);
+                    newItem.name = "The Mission to Psyche";
+                    newItem.transform.name = "The Mission to Psyche";
+
+                    // Adding the new item to the list of inventory in the backend list
+                    aSystem.AddItem(newItem);
+                    
                 }
-            }
-            foreach (GameObject item in aSystem.items)
-            {
-                if (item.name == draggedItem.name)
-                {
-                    aSystem.items.Remove(item);
-                    break;
-                }
-            }
-
-            // Removing the combined items' displayed name and description
-            originalItem.newTitle.SetActive(false);
-            originalItem.newDescription.SetActive(false);
-            Destroy(originalItem.newTitle.gameObject);
-            Destroy(originalItem.newDescription.gameObject);
-            Destroy(droppedItem.newTitle.gameObject);
-            Destroy(droppedItem.newDescription.gameObject);
-
-            // Deleting both of the old inventory items
-            Destroy(draggedItem.gameObject);
-            Destroy(transform.GetChild(0).gameObject);
-
-            // Creating a new combined item.
-            // NOTE: This is just for testing; needs to be altered to accommodate rest of the game
-            //       i.e. Needs change in the creation of the object to allow different objects to be created
-            //            using dictionaries of combinable objects, correct names, etc.
-            
-            if ((originalName == "Solar Panels" && droppedName == "Electromagnetic Fields") || 
-                (originalName == "Electromagnetic Fields" && droppedName == "Solar Panels"))
-            {
-                GameObject newItem = Instantiate(solarElecFab, transform);
-                newItem.name = "Solar Electric Propulsion";
-                newItem.transform.name = "Solar Electric Propulsion";
-
-                // Adding the new item to the list of inventory in the backend list
-                aSystem.AddItem(newItem);
-            }
-            else if ((originalName == "Neutron Spectrometer" && droppedName == "Cosmic Rays") ||
-                (originalName == "Cosmic Rays" && droppedName == "Neutron Spectrometer"))
-            {
-                GameObject newItem = Instantiate(gamFab, transform);
-                newItem.name = "Gamma Ray Spectrometer";
-                newItem.transform.name = "Gamma Ray Spectrometer";
-
-                // Adding the new item to the list of inventory in the backend list
-                aSystem.AddItem(newItem);
             }
             else
             {
-                GameObject newItem = Instantiate(itemPrefab, transform);
-                newItem.name = "TestItem4";
-                newItem.transform.name = "TestItem4";
+                // The item being held by the cursor is marked to drop in the slot
+                droppedItem.lastParent = transform;
 
-                // Adding the new item to the list of inventory in the backend list
-                aSystem.AddItem(newItem);
+                // Removing each of the parents (two combinable items) from the backend inventory list
+                foreach (GameObject item in aSystem.items)
+                {
+                    if (item.name == originalItem.name)
+                    {
+                        aSystem.items.Remove(item);
+                        break;
+                    }
+                }
+                foreach (GameObject item in aSystem.items)
+                {
+                    if (item.name == draggedItem.name)
+                    {
+                        aSystem.items.Remove(item);
+                        break;
+                    }
+                }
+
+                // Removing the combined items' displayed name and description
+                originalItem.newTitle.SetActive(false);
+                originalItem.newDescription.SetActive(false);
+                Destroy(originalItem.newTitle.gameObject);
+                Destroy(originalItem.newDescription.gameObject);
+                Destroy(droppedItem.newTitle.gameObject);
+                Destroy(droppedItem.newDescription.gameObject);
+
+                // Deleting both of the old inventory items
+                Destroy(draggedItem.gameObject);
+                Destroy(transform.GetChild(0).gameObject);
+
+                // Creating a new combined item.
+                // NOTE: This is just for testing; needs to be altered to accommodate rest of the game
+                //       i.e. Needs change in the creation of the object to allow different objects to be created
+                //            using dictionaries of combinable objects, correct names, etc.
+
+                if ((originalName == "Solar Panels" && droppedName == "Electromagnetic Fields") ||
+                    (originalName == "Electromagnetic Fields" && droppedName == "Solar Panels"))
+                {
+                    GameObject newItem = Instantiate(solarElecFab, transform);
+                    newItem.name = "Solar Electric Propulsion";
+                    newItem.transform.name = "Solar Electric Propulsion";
+
+                    // Adding the new item to the list of inventory in the backend list
+                    aSystem.AddItem(newItem);
+                }
+                else if ((originalName == "Neutron Spectrometer" && droppedName == "Cosmic Rays") ||
+                    (originalName == "Cosmic Rays" && droppedName == "Neutron Spectrometer"))
+                {
+                    GameObject newItem = Instantiate(gamFab, transform);
+                    newItem.name = "Gamma Ray Spectrometer";
+                    newItem.transform.name = "Gamma Ray Spectrometer";
+
+                    // Adding the new item to the list of inventory in the backend list
+                    aSystem.AddItem(newItem);
+                }
+                else
+                {
+                    GameObject newItem = Instantiate(itemPrefab, transform);
+                    newItem.name = "TestItem4";
+                    newItem.transform.name = "TestItem4";
+
+                    // Adding the new item to the list of inventory in the backend list
+                    aSystem.AddItem(newItem);
+                }
+
             }
-
-            
         }
     }
 }

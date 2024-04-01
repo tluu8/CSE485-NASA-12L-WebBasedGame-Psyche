@@ -16,7 +16,7 @@ public class InventorySystem : MonoBehaviour
     private void Start()
     {
         // --- First area combinable items ---
-        combinableItems.Add("ASU Trinket", " ");
+        combinableItems.Add("Arizona State University", " ");
         combinableItems.Add("Electromagnetic Fields", "Solar Panels");
         combinableItems.Add("Solar Panels", "Electromagnetic Fields");
         combinableItems.Add("Falcon Heavy Rocket", " ");
@@ -30,10 +30,10 @@ public class InventorySystem : MonoBehaviour
         combinableItems.Add("Gamma Ray Spectrometer", " ");
 
         // --- Third area combinable items ---
-        /*combinableItems.Add("Density", "Rotation period");
-        combinableItems.Add("Rotation period", "Density");
-        combinableItems.Add("Orbital Period", "Rotation period");
-        combinableItems.Add("Psyche Asteroid", " ");*/
+        combinableItems.Add("Density", "Rotation Period");
+        combinableItems.Add("Rotation Period", "Orbital Period");
+        combinableItems.Add("Orbital Period", "Density");
+        combinableItems.Add("Psyche Asteroid", " ");
 
 
         // First area item descriptions

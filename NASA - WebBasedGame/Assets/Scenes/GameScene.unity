@@ -1220,7 +1220,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Access denied. The Mission to Psyche needed to proceed. (Hint: Density,
-    Rotation, and Orbital Period are needed to obtain this!)
+    Rotation Period, and Orbital Period are needed to obtain this!)
 
 '
   m_isRightToLeft: 0
