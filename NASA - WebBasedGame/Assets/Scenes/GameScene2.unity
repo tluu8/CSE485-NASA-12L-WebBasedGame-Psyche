@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 213795803}
   - component: {fileID: 213795802}
   - component: {fileID: 213795801}
+  - component: {fileID: 213795808}
   m_Layer: 0
   m_Name: Neutron Spectrometer
   m_TagString: Item
@@ -521,6 +522,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &213795808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213795800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4861b38d59f77146a94aa717e97ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508241828
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +549,7 @@ GameObject:
   - component: {fileID: 508241831}
   - component: {fileID: 508241830}
   - component: {fileID: 508241829}
+  - component: {fileID: 508241836}
   m_Layer: 0
   m_Name: Cosmic Rays
   m_TagString: Item
@@ -712,6 +726,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508241836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508241828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4861b38d59f77146a94aa717e97ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &585477113
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +913,7 @@ GameObject:
   - component: {fileID: 929086646}
   - component: {fileID: 929086645}
   - component: {fileID: 929086644}
+  - component: {fileID: 929086651}
   m_Layer: 0
   m_Name: X-Band Radio Frequency
   m_TagString: Item
@@ -1063,6 +1090,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929086651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929086643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4861b38d59f77146a94aa717e97ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1055774284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1117,7 @@ GameObject:
   - component: {fileID: 1055774287}
   - component: {fileID: 1055774286}
   - component: {fileID: 1055774285}
+  - component: {fileID: 1055774292}
   m_Layer: 0
   m_Name: Magnetometer
   m_TagString: Item
@@ -1254,6 +1294,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055774292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055774284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4861b38d59f77146a94aa717e97ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373557762
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ using System.Drawing;
 public class InventorySystem : MonoBehaviour
 {
     public List<GameObject> items = new List<GameObject>();
+    public List<string> collectedItems = new List<string>();
     public Dictionary<string, string> descriptions = new Dictionary<string, string>();
     public Dictionary<string, string> combinableItems = new Dictionary<string, string>();
 
@@ -101,8 +102,22 @@ public class InventorySystem : MonoBehaviour
         return false;
     }
 
+    public bool findItemC(string searchedName)
+    {
+        foreach (string itemName in collectedItems)
+        {
+            if (itemName == searchedName)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
     public void AddItem(GameObject item)
     {
         items.Add(item);
+        collectedItems.Add(item.name);
     }
 }
