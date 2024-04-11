@@ -6,7 +6,7 @@ public class FixedYPosition : MonoBehaviour
 {
     public float fixedY = -2.9f; // The Y coordinate you want to fix the GameObject at
 
-    void Update()
+    /*void Update()
     {
         Vector3 currentPosition = transform.position;
 
@@ -16,5 +16,5 @@ public class FixedYPosition : MonoBehaviour
             // If so, update the Y position while keeping X and Z the same
             transform.position = new Vector3(currentPosition.x, fixedY, currentPosition.z);
         }
-    }
+    }*/
 }

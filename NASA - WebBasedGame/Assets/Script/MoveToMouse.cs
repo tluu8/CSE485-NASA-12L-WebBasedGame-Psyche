@@ -16,7 +16,7 @@ public class MoveToMouse : MonoBehaviour
     private bool isMoving = false;
 
     // The fixed Y-coordinate when touching the floor
-    private float fixedY = -3.495f;
+    private float fixedY = -2.33f;
 
     private Animator playerAnim;
 
