@@ -34,6 +34,7 @@ public class InventorySystem : MonoBehaviour
         combinableItems.Add("Rotation Period", "Orbital Period");
         combinableItems.Add("Orbital Period", "Density");
         combinableItems.Add("Psyche Asteroid", " ");
+        combinableItems.Add("The Mission to Psyche", " ");
 
 
         // First area item descriptions
