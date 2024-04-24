@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering.VirtualTexturing;
+//using UnityEngine.Rendering.VirtualTexturing;
 
 // DroppedItemOnSlot handles the dropping of items onto inventory slots
 public class DroppedItemOnSlot : MonoBehaviour, IDropHandler
