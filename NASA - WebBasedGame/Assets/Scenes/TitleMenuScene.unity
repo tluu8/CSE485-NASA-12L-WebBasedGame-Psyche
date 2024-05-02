@@ -452,10 +452,10 @@ RectTransform:
   - {fileID: 424339522}
   m_Father: {fileID: 745926215207077151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 682, y: 172}
-  m_SizeDelta: {x: -1554.5376, y: -929}
+  m_SizeDelta: {x: 738.5376, y: -471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712849864
 MonoBehaviour:
@@ -670,10 +670,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 745926215207077151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -578, y: 461}
-  m_SizeDelta: {x: -1204.2891, y: -334.0702}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -130, y: 314}
+  m_SizeDelta: {x: 388.2891, y: 123.92981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313191082
 MonoBehaviour:
@@ -722,8 +722,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 130
-  m_fontSizeBase: 130
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 3.998352, y: 335.9266, z: 141.3227, w: -4.331665}
+  m_margin: {x: -127.22374, y: 335.9266, z: 141.3227, w: -4.331665}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -807,7 +807,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -2.6809, y: -72.7305}
-  m_SizeDelta: {x: 276.2221, y: 124.4007}
+  m_SizeDelta: {x: 150, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1690161051
 MonoBehaviour:
@@ -1585,6 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 0}
+  TutorialCanvas: {fileID: 0}
 --- !u!1 &6482742482297558693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00091552734, y: 0}
+  m_AnchoredPosition: {x: 0.0009765625, y: 0}
   m_SizeDelta: {x: 0.0020752, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7708057469322571140
